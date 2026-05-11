@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddCourse from "../pages/AddCourse";
+import MyCourses from "../pages/MyCourses";
 
 export const router = createBrowserRouter([
 
@@ -45,6 +46,16 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
 
                         <AddCourse />
+
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: "/my-courses",
+                element: (
+                    <PrivateRoute>
+
+                        <MyCourses />
 
                     </PrivateRoute>
                 )

@@ -47,6 +47,11 @@ const Navbar = () => {
                         Add Course
 
                     </Link>
+                    <Link to="/my-courses">
+
+                        My Courses
+
+                    </Link>
 
                     {
                         user ? (
