@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Courses from "../pages/Courses";
 import Dashboard from "../pages/Dashboard";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
 
@@ -29,7 +30,13 @@ export const router = createBrowserRouter([
 
             {
                 path: "/dashboard",
-                element: <Dashboard />
+                element: (
+                    <PrivateRoute>
+
+                        <Dashboard />
+
+                    </PrivateRoute>
+                )
             },
 
             {
