@@ -2,8 +2,11 @@ import { useContext } from "react";
 
 import { AuthContext } from "../providers/AuthProvider";
 
-import { Link, useNavigate } from "react-router-dom";
-
+import {
+    Link,
+    useLocation,
+    useNavigate
+} from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -14,6 +17,9 @@ const Login = () => {
     } = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     // email password login
     const handleLogin = (e) => {
@@ -30,7 +36,7 @@ const Login = () => {
 
                 toast.success("Login Successful");
 
-                navigate("/");
+                navigate(from);
             })
             .catch(error => {
 
@@ -46,7 +52,7 @@ const Login = () => {
 
                 toast.success("Google Login Successful");
 
-                navigate("/");
+                navigate(from);
             })
             .catch(error => {
 
