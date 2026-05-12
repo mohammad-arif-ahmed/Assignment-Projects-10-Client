@@ -11,6 +11,7 @@ const Courses = () => {
     const [category, setCategory] = useState("");
 
     useEffect(() => {
+        document.title = "Courses | LearnHub";
 
         api
             .get(`/courses?search=${search}&category=${category}`)

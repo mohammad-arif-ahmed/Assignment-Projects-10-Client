@@ -1,82 +1,100 @@
-import { useContext } from "react";
-
 import { Link } from "react-router-dom";
+
+import { useContext } from "react";
 
 import { AuthContext } from "../providers/AuthProvider";
 
-import toast from "react-hot-toast";
-
 const Navbar = () => {
 
-    const {
-        user,
-        logoutUser
-    } = useContext(AuthContext);
+    const { user, logoutUser } = useContext(AuthContext);
 
     const handleLogout = () => {
 
-        logoutUser()
-            .then(() => {
-
-                toast.success("Logout Successful");
-            })
-            .catch(error => {
-
-                toast.error(error.message);
-            });
+        logoutUser();
     };
 
     return (
-        <div className="bg-black text-white p-4">
+        <div className="sticky top-0 z-50 bg-[#0f172a]/90 backdrop-blur border-b border-gray-800">
 
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-                <h1 className="text-2xl font-bold">
-                    LearnHub
-                </h1>
+                {/* logo */}
 
-                <div className="flex gap-5 items-center">
+                <Link
+                    to="/"
+                    className="text-3xl font-extrabold text-white"
+                >
 
-                    <Link to="/">Home</Link>
+                    Learn<span className="text-cyan-400">Hub</span>
 
-                    <Link to="/courses">Courses</Link>
+                </Link>
 
-                    <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/add-course">
+                {/* nav links */}
 
-                        Add Course
+                <div className="flex items-center gap-6 text-white font-medium">
 
+                    <Link
+                        to="/"
+                        className="hover:text-cyan-400 duration-300"
+                    >
+                        Home
                     </Link>
-                    <Link to="/my-courses">
 
-                        My Courses
-
-                    </Link>
-                    <Link to="/my-enrolled-courses">
-
-                        Enrolled Courses
-
+                    <Link
+                        to="/courses"
+                        className="hover:text-cyan-400 duration-300"
+                    >
+                        Courses
                     </Link>
 
                     {
-                        user ? (
+                        user && (
                             <>
+                                <Link
+                                    to="/add-course"
+                                    className="hover:text-cyan-400 duration-300"
+                                >
+                                    Add Course
+                                </Link>
 
-                                <img
-                                    src={user.photoURL}
-                                    alt=""
-                                    className="w-10 h-10 rounded-full"
-                                />
+                                <Link
+                                    to="/my-courses"
+                                    className="hover:text-cyan-400 duration-300"
+                                >
+                                    My Courses
+                                </Link>
 
-                                <button onClick={handleLogout}>
-
-                                    Logout
-
-                                </button>
-
+                                <Link
+                                    to="/my-enrolled-courses"
+                                    className="hover:text-cyan-400 duration-300"
+                                >
+                                    Enrolled
+                                </Link>
                             </>
+                        )
+                    }
+
+                </div>
+
+                {/* auth */}
+
+                <div>
+
+                    {
+                        user ? (
+                            <button
+                                onClick={handleLogout}
+                                className="bg-cyan-400 hover:bg-cyan-300 text-black px-6 py-2 rounded-full font-semibold duration-300"
+                            >
+
+                                Logout
+
+                            </button>
                         ) : (
-                            <Link to="/login">
+                            <Link
+                                to="/login"
+                                className="bg-cyan-400 hover:bg-cyan-300 text-black px-6 py-2 rounded-full font-semibold duration-300"
+                            >
 
                                 Login
 

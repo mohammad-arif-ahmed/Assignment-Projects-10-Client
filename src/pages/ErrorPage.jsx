@@ -1,14 +1,30 @@
-const ErrorPage = () => {
-    return (
-        <div className="text-center mt-20">
+import { Link } from "react-router-dom";
 
-            <h1 className="text-5xl font-bold text-red-500">
+const ErrorPage = () => {
+
+    return (
+        <div className="flex flex-col justify-center items-center min-h-screen">
+
+            <h1 className="text-7xl font-bold">
+
                 404
+
             </h1>
 
-            <p className="mt-5 text-xl">
+            <p className="text-2xl mt-4">
+
                 Page Not Found
+
             </p>
+
+            <Link
+                to="/"
+                className="bg-black text-white px-6 py-3 rounded mt-6"
+            >
+
+                Back Home
+
+            </Link>
 
         </div>
     );

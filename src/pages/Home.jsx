@@ -4,11 +4,15 @@ import api from "../services/api";
 
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 const Home = () => {
 
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
+
+        document.title = "LearnHub";
 
         api.get("/featured-courses")
             .then(res => {
@@ -19,97 +23,145 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+
+        <div className="bg-[#020617] text-white min-h-screen">
 
             {/* hero section */}
 
-            <div
-                className="hero min-h-[500px] rounded-2xl"
-                style={{
-                    backgroundImage:
-                        "url(https://i.ibb.co/zrN5G4H/online-learning.jpg)"
-                }}
-            >
+            <div className="max-w-7xl mx-auto px-6 py-20">
 
-                <div className="hero-overlay bg-black bg-opacity-60 rounded-2xl"></div>
+                <motion.div
+                    initial={{ opacity: 0, y: 80 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="grid md:grid-cols-2 gap-10 items-center"
+                >
 
-                <div className="hero-content text-center text-white">
+                    <div>
 
-                    <div className="max-w-2xl">
+                        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
 
-                        <h1 className="text-5xl md:text-7xl font-bold">
+                            Learn New Skills
+                            <span className="text-cyan-400">
 
-                            Learn Without Limits
+                                {" "}Online
+
+                            </span>
 
                         </h1>
 
-                        <p className="py-6 text-lg">
+                        <p className="mt-6 text-lg text-gray-300 leading-8">
 
-                            Explore premium online courses and improve your skills anytime anywhere.
+                            Explore high quality online courses and improve your future career with professional instructors.
 
                         </p>
 
-                        <Link
-                            to="/courses"
-                            className="bg-white text-black px-8 py-3 rounded-lg font-semibold"
-                        >
+                        <div className="mt-8 flex gap-5">
 
-                            Explore Courses
+                            <Link
+                                to="/courses"
+                                className="bg-cyan-400 hover:bg-cyan-300 text-black px-8 py-4 rounded-xl font-bold duration-300"
+                            >
 
-                        </Link>
+                                Explore Courses
+
+                            </Link>
+
+                            <Link
+                                to="/register"
+                                className="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 hover:text-black duration-300"
+                            >
+
+                                Join Now
+
+                            </Link>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.7 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.2 }}
+                    >
+
+                        <img
+                            src="https://i.ibb.co/Xz0Q6Dq/online-learning.png"
+                            alt=""
+                            className="rounded-3xl shadow-2xl"
+                        />
+
+                    </motion.div>
+
+                </motion.div>
 
             </div>
 
             {/* featured courses */}
 
-            <div className="mt-20">
+            <div className="max-w-7xl mx-auto px-6 py-16">
 
-                <h2 className="text-4xl font-bold text-center mb-10">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="text-4xl md:text-5xl font-bold text-center mb-14"
+                >
 
                     Popular Courses
 
-                </h2>
+                </motion.h2>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
 
                     {
                         courses.map(course => (
 
-                            <div
+                            <motion.div
                                 key={course._id}
-                                data-aos="fade-up"
-                                className="border p-5 rounded-xl shadow-lg"
+                                whileHover={{ y: -10 }}
+                                className="bg-[#0f172a] border border-gray-800 rounded-3xl overflow-hidden shadow-2xl"
                             >
 
                                 <img
                                     src={course.image}
                                     alt=""
-                                    className="h-52 w-full object-cover rounded-xl"
+                                    className="h-56 w-full object-cover"
                                 />
 
-                                <h3 className="text-2xl font-bold mt-4">
+                                <div className="p-6">
 
-                                    {course.title}
+                                    <h3 className="text-2xl font-bold">
 
-                                </h3>
+                                        {course.title}
 
-                                <p className="mt-2">
+                                    </h3>
 
-                                    {course.category}
+                                    <p className="mt-3 text-gray-400">
 
-                                </p>
+                                        {course.category}
 
-                                <p className="mt-2">
+                                    </p>
 
-                                    ${course.price}
+                                    <p className="mt-2 text-cyan-400 text-xl font-bold">
 
-                                </p>
+                                        ${course.price}
 
-                            </div>
+                                    </p>
+
+                                    <Link
+                                        to={`/course-details/${course._id}`}
+                                        className="inline-block mt-5 bg-cyan-400 hover:bg-cyan-300 text-black px-6 py-3 rounded-xl font-semibold duration-300"
+                                    >
+
+                                        View Details
+
+                                    </Link>
+
+                                </div>
+
+                            </motion.div>
                         ))
                     }
 
@@ -119,72 +171,72 @@ const Home = () => {
 
             {/* why choose us */}
 
-            <div className="mt-24">
+            <div className="max-w-7xl mx-auto px-6 py-16">
 
-                <h2 className="text-4xl font-bold text-center mb-10">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-14">
 
                     Why Choose Us
 
                 </h2>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
 
-                    <div
-                        data-aos="zoom-in"
-                        className="border p-8 rounded-xl shadow"
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl"
                     >
 
-                        <h3 className="text-2xl font-bold mb-4">
+                        <h3 className="text-3xl font-bold mb-4">
 
-                            Expert Instructors
+                            Expert Mentors
 
                         </h3>
 
-                        <p>
+                        <p className="text-gray-400 leading-8">
 
-                            Learn from highly experienced industry experts.
+                            Learn from experienced instructors and industry professionals.
 
                         </p>
 
-                    </div>
+                    </motion.div>
 
-                    <div
-                        data-aos="zoom-in"
-                        className="border p-8 rounded-xl shadow"
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl"
                     >
 
-                        <h3 className="text-2xl font-bold mb-4">
+                        <h3 className="text-3xl font-bold mb-4">
 
-                            Lifetime Access
+                            Flexible Learning
 
                         </h3>
 
-                        <p>
+                        <p className="text-gray-400 leading-8">
 
-                            Access your courses anytime from anywhere.
+                            Study anytime anywhere with complete flexibility.
 
                         </p>
 
-                    </div>
+                    </motion.div>
 
-                    <div
-                        data-aos="zoom-in"
-                        className="border p-8 rounded-xl shadow"
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl"
                     >
 
-                        <h3 className="text-2xl font-bold mb-4">
+                        <h3 className="text-3xl font-bold mb-4">
 
-                            Affordable Price
+                            Affordable Courses
 
                         </h3>
 
-                        <p>
+                        <p className="text-gray-400 leading-8">
 
-                            Premium quality courses at affordable pricing.
+                            Get premium quality education at affordable pricing.
 
                         </p>
 
-                    </div>
+                    </motion.div>
 
                 </div>
 
@@ -192,72 +244,53 @@ const Home = () => {
 
             {/* instructors */}
 
-            <div className="mt-24 mb-20">
+            <div className="max-w-7xl mx-auto px-6 py-16">
 
-                <h2 className="text-4xl font-bold text-center mb-10">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-14">
 
                     Top Instructors
 
                 </h2>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
 
-                    <div
-                        data-aos="flip-left"
-                        className="border p-5 rounded-xl shadow text-center"
-                    >
+                    {
+                        [
+                            {
+                                name: "John Smith",
+                                image: "https://i.ibb.co/jr8fB3W/man1.jpg"
+                            },
+                            {
+                                name: "Sarah Johnson",
+                                image: "https://i.ibb.co/Tc5k3M2/woman.jpg"
+                            },
+                            {
+                                name: "David Miller",
+                                image: "https://i.ibb.co/7v7g7YH/man2.jpg"
+                            }
+                        ].map((teacher, index) => (
 
-                        <img
-                            src="https://i.ibb.co/jr8fB3W/man1.jpg"
-                            alt=""
-                            className="w-40 h-40 rounded-full mx-auto object-cover"
-                        />
+                            <motion.div
+                                key={index}
+                                whileHover={{ y: -10 }}
+                                className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl text-center"
+                            >
 
-                        <h3 className="text-2xl font-bold mt-4">
+                                <img
+                                    src={teacher.image}
+                                    alt=""
+                                    className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-cyan-400"
+                                />
 
-                            John Smith
+                                <h3 className="text-3xl font-bold mt-6">
 
-                        </h3>
+                                    {teacher.name}
 
-                    </div>
+                                </h3>
 
-                    <div
-                        data-aos="flip-left"
-                        className="border p-5 rounded-xl shadow text-center"
-                    >
-
-                        <img
-                            src="https://i.ibb.co/Tc5k3M2/woman.jpg"
-                            alt=""
-                            className="w-40 h-40 rounded-full mx-auto object-cover"
-                        />
-
-                        <h3 className="text-2xl font-bold mt-4">
-
-                            Sarah Johnson
-
-                        </h3>
-
-                    </div>
-
-                    <div
-                        data-aos="flip-left"
-                        className="border p-5 rounded-xl shadow text-center"
-                    >
-
-                        <img
-                            src="https://i.ibb.co/7v7g7YH/man2.jpg"
-                            alt=""
-                            className="w-40 h-40 rounded-full mx-auto object-cover"
-                        />
-
-                        <h3 className="text-2xl font-bold mt-4">
-
-                            David Miller
-
-                        </h3>
-
-                    </div>
+                            </motion.div>
+                        ))
+                    }
 
                 </div>
 
