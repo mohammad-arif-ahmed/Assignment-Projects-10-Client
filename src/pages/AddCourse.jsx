@@ -44,10 +44,8 @@ const AddCourse = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto shadow-lg p-8 rounded-xl">
-
-            <h1 className="text-4xl font-bold mb-8 text-center">
-
+        <div className="max-w-2xl mx-auto shadow-2xl p-8 rounded-xl bg-[#0f172a] border border-gray-800 my-10">
+            <h1 className="text-4xl font-bold mb-8 text-center text-white">
                 Add Course
 
             </h1>
@@ -61,52 +59,45 @@ const AddCourse = () => {
                     type="text"
                     name="title"
                     placeholder="Course Title"
-                    className="w-full border p-3 rounded"
-                    required
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" required
                 />
 
                 <input
                     type="text"
                     name="image"
                     placeholder="Image URL"
-                    className="w-full border p-3 rounded"
-                    required
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" required
                 />
 
                 <input
                     type="number"
                     name="price"
                     placeholder="Price"
-                    className="w-full border p-3 rounded"
-                    required
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" required
                 />
 
                 <input
                     type="text"
                     name="duration"
                     placeholder="Duration"
-                    className="w-full border p-3 rounded"
-                    required
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" required
                 />
 
                 <input
                     type="text"
                     name="category"
                     placeholder="Category"
-                    className="w-full border p-3 rounded"
-                    required
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" required
                 />
 
                 <textarea
                     name="description"
                     placeholder="Description"
-                    className="w-full border p-3 rounded"
-                    rows="5"
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" rows="5"
                     required
                 ></textarea>
 
-                <label className="flex gap-3 items-center">
-
+                <label className="flex gap-3 items-center text-gray-300">
                     <input
                         type="checkbox"
                         name="isFeatured"
@@ -116,8 +107,7 @@ const AddCourse = () => {
 
                 </label>
 
-                <button className="w-full bg-black text-white py-3 rounded">
-
+                <button className="w-full bg-cyan-400 hover:bg-cyan-300 text-black py-3 rounded font-bold duration-300 shadow-lg shadow-cyan-400/20">
                     Add Course
 
                 </button>

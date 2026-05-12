@@ -87,10 +87,9 @@ const Home = () => {
                     >
 
                         <img
-                            src="https://i.ibb.co/Xz0Q6Dq/online-learning.png"
+                            src="https://i.ibb.co.com/j9HttZFJ/hero-Slider1.png"
                             alt=""
-                            className="rounded-3xl shadow-2xl"
-                        />
+                            className="rounded-3xl shadow-2xl border border-cyan-400" />
 
                     </motion.div>
 
@@ -258,28 +257,27 @@ const Home = () => {
                         [
                             {
                                 name: "John Smith",
-                                image: "https://i.ibb.co/jr8fB3W/man1.jpg"
+                                image: "https://i.ibb.co.com/qYrhk6YS/codingx.png"
                             },
                             {
                                 name: "Sarah Johnson",
-                                image: "https://i.ibb.co/Tc5k3M2/woman.jpg"
+                                image: "https://i.ibb.co.com/WNNKVpwP/engx.png"
                             },
                             {
-                                name: "David Miller",
-                                image: "https://i.ibb.co/7v7g7YH/man2.jpg"
+                                name: "Abdullah Hasan",
+                                image: "https://i.ibb.co.com/m5Svrjbz/arbix.png"
                             }
                         ].map((teacher, index) => (
 
                             <motion.div
                                 key={index}
                                 whileHover={{ y: -10 }}
-                                className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl text-center"
-                            >
+                                className="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl text-center flex flex-col items-center"                            >
 
                                 <img
                                     src={teacher.image}
                                     alt=""
-                                    className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-cyan-400"
+                                    className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-cyan-400 shadow-2xl"
                                 />
 
                                 <h3 className="text-3xl font-bold mt-6">
