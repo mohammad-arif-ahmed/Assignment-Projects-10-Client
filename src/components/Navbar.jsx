@@ -52,6 +52,11 @@ const Navbar = () => {
                         My Courses
 
                     </Link>
+                    <Link to="/my-enrolled-courses">
+
+                        Enrolled Courses
+
+                    </Link>
 
                     {
                         user ? (

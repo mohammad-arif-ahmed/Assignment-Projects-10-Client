@@ -13,6 +13,7 @@ import AddCourse from "../pages/AddCourse";
 import MyCourses from "../pages/MyCourses";
 import UpdateCourse from "../pages/UpdateCourse";
 import CourseDetails from "../pages/CourseDetails";
+import MyEnrolledCourses from "../pages/MyEnrolledCourses";
 
 export const router = createBrowserRouter([
 
@@ -78,6 +79,16 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
 
                         <CourseDetails />
+
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: "/my-enrolled-courses",
+                element: (
+                    <PrivateRoute>
+
+                        <MyEnrolledCourses />
 
                     </PrivateRoute>
                 )
