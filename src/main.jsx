@@ -8,6 +8,10 @@ import {
 
 import { router } from './routes/router';
 import { Toaster } from 'react-hot-toast';
+import AOS from "aos";
+
+import "aos/dist/aos.css";
+AOS.init();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
