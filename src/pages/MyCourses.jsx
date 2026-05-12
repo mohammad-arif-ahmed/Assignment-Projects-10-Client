@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import api from "../services/api";
 
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MyCourses = () => {
 
@@ -101,13 +102,14 @@ const MyCourses = () => {
 
                                 </button>
 
-                                <button
+                                <Link
+                                    to={`/update-course/${course._id}`}
                                     className="bg-black text-white px-4 py-2 rounded"
                                 >
 
                                     Update
 
-                                </button>
+                                </Link>
 
                             </div>
 

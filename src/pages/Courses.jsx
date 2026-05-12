@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import api from "../services/api";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
 
@@ -58,6 +59,14 @@ const Courses = () => {
                                 Price: ${course.price}
 
                             </p>
+                            <Link
+                                to={`/course-details/${course._id}`}
+                                className="inline-block bg-black text-white px-5 py-2 rounded mt-5"
+                            >
+
+                                View Details
+
+                            </Link>
 
                         </div>
                     ))

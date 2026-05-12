@@ -11,6 +11,8 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddCourse from "../pages/AddCourse";
 import MyCourses from "../pages/MyCourses";
+import UpdateCourse from "../pages/UpdateCourse";
+import CourseDetails from "../pages/CourseDetails";
 
 export const router = createBrowserRouter([
 
@@ -56,6 +58,26 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
 
                         <MyCourses />
+
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: "/update-course/:id",
+                element: (
+                    <PrivateRoute>
+
+                        <UpdateCourse />
+
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: "/course-details/:id",
+                element: (
+                    <PrivateRoute>
+
+                        <CourseDetails />
 
                     </PrivateRoute>
                 )
