@@ -6,16 +6,20 @@ import { Link } from "react-router-dom";
 const Courses = () => {
 
     const [courses, setCourses] = useState([]);
+    const [search, setSearch] = useState("");
+
+    const [category, setCategory] = useState("");
 
     useEffect(() => {
 
-        api.get("/courses")
+        api
+            .get(`/courses?search=${search}&category=${category}`)
             .then(res => {
 
                 setCourses(res.data);
             });
 
-    }, []);
+    }, [search, category]);
 
     return (
         <div>
@@ -25,6 +29,53 @@ const Courses = () => {
                 All Courses
 
             </h1>
+            <div className="flex flex-col md:flex-row gap-4 mb-8">
+
+                <input
+                    type="text"
+                    placeholder="Search course..."
+                    className="border p-3 rounded w-full"
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+
+                <select
+                    className="border p-3 rounded"
+                    onChange={(e) => setCategory(e.target.value)}
+                >
+
+                    <option value="">
+
+                        All Categories
+
+                    </option>
+
+                    <option value="Web Development">
+
+                        Web Development
+
+                    </option>
+
+                    <option value="Programming">
+
+                        Programming
+
+                    </option>
+
+                    <option value="Design">
+
+                        Design
+
+                    </option>
+
+                    <option value="Marketing">
+
+                        Marketing
+
+                    </option>
+
+                </select>
+
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6">
 
