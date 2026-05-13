@@ -25,8 +25,7 @@ const Courses = () => {
     return (
         <div>
 
-            <h1 className="text-4xl font-bold mb-8">
-
+            <h1 className="text-4xl font-bold mb-8 text-white">
                 All Courses
 
             </h1>
@@ -35,12 +34,11 @@ const Courses = () => {
                 <input
                     type="text"
                     placeholder="Search course..."
-                    className="border p-3 rounded w-full"
-                    onChange={(e) => setSearch(e.target.value)}
+                    className="w-full bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 placeholder-gray-500" onChange={(e) => setSearch(e.target.value)}
                 />
 
                 <select
-                    className="border p-3 rounded"
+                    className="bg-[#1e293b] border border-gray-700 p-3 rounded text-white focus:outline-none focus:border-cyan-400 cursor-pointer"
                     onChange={(e) => setCategory(e.target.value)}
                 >
 
@@ -56,21 +54,21 @@ const Courses = () => {
 
                     </option>
 
-                    <option value="Programming">
+                    <option value="Network">
 
-                        Programming
-
-                    </option>
-
-                    <option value="Design">
-
-                        Design
+                        Network
 
                     </option>
 
-                    <option value="Marketing">
+                    <option value="Service">
 
-                        Marketing
+                        Service
+
+                    </option>
+
+                    <option value="English">
+
+                        English
 
                     </option>
 
@@ -85,8 +83,7 @@ const Courses = () => {
 
                         <div
                             key={course._id}
-                            className="border p-5 rounded-xl shadow"
-                        >
+                            className="bg-[#0f172a] border border-gray-800 p-5 rounded-xl shadow-xl hover:border-cyan-400/50 transition-all"                        >
 
                             <img
                                 src={course.image}
@@ -94,14 +91,12 @@ const Courses = () => {
                                 className="h-48 w-full object-cover rounded-lg"
                             />
 
-                            <h2 className="text-2xl font-bold mt-4">
-
+                            <h2 className="text-2xl font-bold mt-4 text-white">
                                 {course.title}
 
                             </h2>
 
-                            <p className="mt-2">
-
+                            <p className="mt-2 text-gray-400">
                                 Category: {course.category}
 
                             </p>
@@ -113,8 +108,7 @@ const Courses = () => {
                             </p>
                             <Link
                                 to={`/course-details/${course._id}`}
-                                className="inline-block bg-black text-white px-5 py-2 rounded mt-5"
-                            >
+                                className="inline-block bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-5 py-2 rounded mt-5 transition-colors"                            >
 
                                 View Details
 
